@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication1.Models;
+using ShoppingCart.IOC;
 
 namespace WebApplication1
 {
@@ -51,8 +52,9 @@ namespace WebApplication1
 
                     options.Lockout.MaxFailedAccessAttempts = 5;
                 });
-        }
 
+            DependencyContainer.RegisterServices(services, Configuration.GetConnectionString("DefaultConnection"));
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
