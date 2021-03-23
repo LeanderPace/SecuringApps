@@ -2,12 +2,12 @@
 
 namespace ShoppingCart.Data.Migrations
 {
-    public partial class MakingProductImageUrl : Migration
+    public partial class AddingOwnerToProduct : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "ImageUrl",
+                name: "Owner",
                 table: "Products",
                 nullable: true);
         }
@@ -15,7 +15,7 @@ namespace ShoppingCart.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ImageUrl",
+                name: "Owner",
                 table: "Products");
         }
     }
